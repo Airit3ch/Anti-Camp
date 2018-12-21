@@ -130,7 +130,7 @@ antiCamp()
 
 					exec("say "+self.name+" has been ^1KICKED! ^7 for excessive ^1camping!");
 
-					exec("clientkick "+self.name + " excessive camping");
+					exec("clientkick "+guid + " excessive camping");
 
 					return;					
 				}
