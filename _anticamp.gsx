@@ -65,15 +65,14 @@ whenPlayerSpawns()
 	guid = self getGuid();
 
 /*
+	Use this to make it so that some players are immune to the script.
 	if(guid == "")
 	{
 		return;
 	}
 */
 
-	wait 1;
-
-	self iPrintlnBold("Anti-Camp ^2BETA ^7v2.0 by ^2Airit^73^2ch ^7Started.");
+	//self iPrintlnBold("Anti-Camp ^2BETA ^7v2.0 by ^2Airit^73^2ch ^7Started.");
 
 	self thread antiCamp();
 }
