@@ -144,6 +144,8 @@ antiCamp()
 					exec("say "+self.name+" has been ^1KICKED! ^7 for excessive ^1camping!");
 
 					exec("clientkick "+guid + " excessive camping");
+
+					return;
 				}
 
 				self iPrintLnBold( "You will be ^1killed ^7for camping!");
