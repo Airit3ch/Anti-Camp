@@ -20,7 +20,7 @@ Adjusted camp time from 30 to 15 seconds, which will cause 20 seconds before act
 
 
 /*
-Whats new in BETA Version 2.0
+Whats new in version 2.0
 New Features
 Added in a campCounter, which after 4 times of being killed for camping the player will be kicked with warnings!
 Added in immunity for specific players, included is players with the name bot. 
@@ -72,8 +72,6 @@ whenPlayerSpawns()
 	}
 */
 
-	//self iPrintlnBold("Anti-Camp ^2BETA ^7v2.0 by ^2Airit^73^2ch ^7Started.");
-
 	self thread antiCamp();
 }
 
@@ -124,22 +122,35 @@ antiCamp()
 
 				if(campCounter == 4)
 				{
-					self iPrintLnBold("^1Kicking player for excessive camping.");
+					self iPrintLnBold("^1Moving player to spectator!");
+
+					wait 3;
+
+					//exec("say "+self.name+" has been ^1KICKED! ^7 for excessive ^1camping!");
+
+					//exec("clientkick "+guid + " excessive camping");
+
+					self.sessionstate = "spectator";
+					//In theory 133 should put the player to spectator mode. 
+					self onSpawnedPlayer();					
+				}
+
+				if(campCounter == 5)
+				{
+					self iPrintLnBold("You will be kicked for camping!");
 
 					wait 3;
 
 					exec("say "+self.name+" has been ^1KICKED! ^7 for excessive ^1camping!");
 
 					exec("clientkick "+guid + " excessive camping");
-
-					return;					
 				}
 
 				self iPrintLnBold( "You will be ^1killed ^7for camping!");
 
 				if(campCounter == 3)
 				{
-					self iPrintlnBold("^3If you camp one more time you will be ^1kicked!");
+					self iPrintlnBold("^3If you camp one more time you will be ^1moved to spectator!");
 				}
 
 				wait 2;
